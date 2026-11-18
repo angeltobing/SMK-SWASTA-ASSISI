@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assisi Smart School</title>
+<style>
+:root{--navy:#142b4a;--blue:#245b9e;--sky:#eaf2fb;--gold:#e7b44c;--ink:#243247;--muted:#718096;--line:#e5ebf2;--bg:#f5f7fb;--green:#23845b;--red:#c44b54}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{height:70px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:5;box-shadow:0 3px 14px #10233c22}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}.logo{width:40px;height:40px;border-radius:12px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:19px;font-weight:900}.brand small{display:block;font-size:10px;letter-spacing:1.7px;color:#c6d5e7;margin-top:3px}
+.topright{font-size:13px;color:#dce7f4}.layout{display:flex;min-height:calc(100vh - 70px)}aside{width:245px;background:white;border-right:1px solid var(--line);padding:22px 14px;flex-shrink:0}.navlabel{font-size:10px;color:#9aa7b7;font-weight:800;letter-spacing:1.4px;padding:10px 13px}.nav{width:100%;border:0;background:transparent;text-align:left;padding:12px 13px;border-radius:10px;color:#58677b;font-size:14px;cursor:pointer;margin:2px 0;display:flex;gap:12px;align-items:center}.nav:hover,.nav.active{background:var(--sky);color:var(--blue);font-weight:700}.nav span{width:20px;text-align:center;font-size:17px}main{padding:28px;flex:1;max-width:1500px;margin:auto;width:100%}.welcome{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:24px}.eyebrow{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:1.5px}.welcome h1{font-size:27px;margin:7px 0}.welcome p{margin:0;color:var(--muted);font-size:14px}.datepill{background:white;border:1px solid var(--line);padding:10px 14px;border-radius:12px;font-size:12px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:22px}.stat,.panel,.module-card{background:white;border:1px solid var(--line);border-radius:15px;padding:19px;box-shadow:0 3px 12px #1a35500a}.stat-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.stat-icon{width:34px;height:34px;border-radius:10px;background:var(--sky);display:grid;place-items:center;font-size:17px}.stat strong{display:block;font-size:27px;margin:12px 0 4px;color:var(--navy)}.stat small{color:var(--muted);font-size:11px}.section-title{font-size:17px;margin:0 0 14px}.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:17px}.quickgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.quick{border:1px solid var(--line);border-radius:12px;padding:15px;cursor:pointer;background:#fff;text-align:left}.quick:hover{border-color:#9db9dc;background:#f9fbff}.quick b{display:block;margin:8px 0 4px;font-size:13px}.quick small{color:var(--muted);font-size:11px}.quick .qicon{font-size:21px}.activity{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}.activity:last-child{border:0}.dot{width:9px;height:9px;background:var(--green);border-radius:50%;margin-top:4px;flex-shrink:0}.muted{color:var(--muted)}.page{display:none}.page.active{display:block}.pagehead{margin-bottom:20px}.pagehead h2{margin:0 0 6px;font-size:23px}.pagehead p{margin:0;color:var(--muted);font-size:13px}
+.formrow{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.field{display:flex;flex-direction:column;gap:6px;min-width:150px;flex:1}.field label{font-size:12px;font-weight:700;color:#526176}.field input,.field select,.field textarea,input,select,textarea{font:inherit}.field input,.field select,.field textarea{border:1px solid #dce4ee;border-radius:9px;padding:10px 11px;background:white;color:var(--ink);width:100%}.field textarea{min-height:85px;resize:vertical}button.primary,.btn{background:var(--blue);color:white;border:0;padding:10px 15px;border-radius:9px;font-weight:700;font-size:12px;cursor:pointer}button.secondary{background:#edf2f8;color:var(--navy);border:0;padding:10px 14px;border-radius:9px;cursor:pointer;font-weight:700;font-size:12px}button.danger{background:#fff0f0;color:var(--red);border:0;padding:8px 11px;border-radius:8px;cursor:pointer}table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;color:#7c8999;font-weight:700;background:#f8fafc}td,th{padding:12px 10px;border-bottom:1px solid var(--line)}.tag{display:inline-block;background:#e8f6ef;color:var(--green);padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700}.tag.warn{background:#fff5df;color:#a46b12}.tag.info{background:#eaf2fb;color:var(--blue)}.notice{background:#fff8e8;border:1px solid #f2dfb6;padding:13px;border-radius:10px;font-size:12px;color:#795c22;margin:12px 0}.question{padding:16px;border:1px solid var(--line);border-radius:12px;margin:12px 0}.question p{font-weight:700;font-size:14px}.option{display:block;padding:8px;font-size:13px;cursor:pointer}.option input{margin-right:8px}.result{padding:13px;background:#edf7f1;border-radius:10px;color:#236a49;font-weight:700;margin-top:12px}.empty{color:var(--muted);font-size:13px;padding:20px;text-align:center}.mathbox{max-width:600px}.mathquestion{font-size:28px;font-weight:800;color:var(--navy);padding:25px;text-align:center;background:var(--sky);border-radius:12px;margin:15px 0}.footer{text-align:center;color:#98a4b3;font-size:11px;padding:25px 0 5px}
+@media(max-width:900px){aside{width:205px}.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}@media(max-width:650px){header{padding:0 15px}.topright{display:none}.layout{display:block}aside{width:100%;display:flex;overflow:auto;padding:8px;border-right:0;border-bottom:1px solid var(--line)}.navlabel{display:none}.nav{white-space:nowrap;width:auto;padding:10px}.nav span{display:none}main{padding:18px 13px}.stats{gap:8px}.stat{padding:13px}.quickgrid{grid-template-columns:repeat(2,1fr)}.welcome{display:block}.datepill{display:inline-block;margin-top:12px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">A</div><div>ASSISI SMART SCHOOL<small>LEARN • GROW • EXCEL</small></div></div><div class="topright">Portal Sekolah Digital &nbsp; | &nbsp; Tahun Ajaran 2026/2027</div></header>
+<div class="layout">
+<aside>
+<div class="navlabel">MENU UTAMA</div>
+<button class="nav active" data-page="dashboard"><span>▦</span>Dashboard</button>
+<button class="nav" data-page="ujian"><span>✎</span>Ujian Online</button>
+<button class="nav" data-page="kelas"><span>▤</span>Kelas Digital</button>
+<button class="nav" data-page="absensi"><span>◉</span>Absensi Siswa</button>
+<button class="nav" data-page="matematika"><span>∑</span>Matematika Interaktif</button>
+<div class="navlabel">AKADEMIK & KESISWAAN</div>
+<button class="nav" data-page="raport"><span>▧</span>Raport Digital</button>
+<button class="nav" data-page="nilai"><span>▥</span>Rekap Nilai</button>
+<button class="nav" data-page="bk"><span>♡</span>Aplikasi BK</button>
+</aside>
+<main>
+<section id="dashboard" class="page active">
+<div class="welcome"><div><div class="eyebrow">PUSAT KENDALI SEKOLAH</div><h1>Selamat Datang di Assisi Smart School</h1><p>Kelola kegiatan belajar dan administrasi sekolah dalam satu tempat.</p></div><div class="datepill" id="today"></div></div>
+<div class="stats">
+<div class="stat"><div class="stat-top">Total Siswa <span class="stat-icon">👨‍🎓</span></div><strong id="studentCount">120</strong><small>Data contoh siswa</small></div>
+<div class="stat"><div class="stat-top">Kelas Aktif <span class="stat-icon">🏫</span></div><strong>12</strong><small>Tahun ajaran 2026/2027</small></div>
+<div class="stat"><div class="stat-top">Kehadiran Hari Ini <span class="stat-icon">✓</span></div><strong id="attendanceCount">0</strong><small>Siswa tercatat hadir di perangkat ini</small></div>
+<div class="stat"><div class="stat-top">Catatan BK <span class="stat-icon">♡</span></div><strong id="bkCount">0</strong><small>Catatan tersimpan</small></div>
+</div>
+<div class="grid2">
+<div class="panel"><h3 class="section-title">Akses Cepat</h3><div class="quickgrid">
+<button class="quick" data-go="ujian"><span class="qicon">✎</span><b>Mulai Ujian</b><small>Kerjakan ujian online</small></button>
+<button class="quick" data-go="kelas"><span class="qicon">📚</span><b>Materi Kelas</b><small>Buka pembelajaran</small></button>
+<button class="quick" data-go="absensi"><span class="qicon">◉</span><b>Absensi</b><small>Catat kehadiran siswa</small></button>
+<button class="quick" data-go="matematika"><span class="qicon">∑</span><b>Latihan Matematika</b><small>Asah kemampuan</small></button>
+<button class="quick" data-go="raport"><span class="qicon">▧</span><b>Raport Digital</b><small>Lihat hasil belajar</small></button>
+<button class="quick" data-go="bk"><span class="qicon">♡</span><b>Layanan BK</b><small>Catatan bimbingan</small></button>
+</div></div>
+<div class="panel"><h3 class="section-title">Aktivitas Terbaru</h3><div id="activity"><div class="activity"><span class="dot"></span><div><b>Portal siap digunakan</b><div class="muted">Selamat datang di Assisi Smart School</div></div></div></div></div>
+</div>
+</section>
+<section id="ujian" class="page">
+<div class="pagehead"><h2>Ujian Online</h2><p>Masukkan kode ujian untuk memulai simulasi ujian pilihan ganda.</p></div>
+<div class="panel">
+<div class="formrow"><div class="field"><label>Nama Siswa</label><input id="examName" placeholder="Nama lengkap siswa"></div><div class="field"><label>Kelas</label><select id="examClass"><option>VII A</option><option>VII B</option><option>VIII A</option><option>VIII B</option><option>IX A</option><option>IX B</option><option>X A</option><option>XI A</option><option>XII A</option></select></div><div class="field"><label>Kode Ujian</label><input id="examCode" placeholder="Contoh: ASSISI01"></div></div>
+<button class="primary" id="startExam">Mulai Ujian</button><span class="muted" style="font-size:11px;margin-left:10px">Kode demo: ASSISI01</span>
+<div id="examArea"></div>
+</div>
+</section>
+<section id="kelas" class="page">
+<div class="pagehead"><h2>Kelas Digital</h2><p>Ruang belajar, materi, dan penugasan siswa.</p></div>
+<div class="panel"><h3 class="section-title">Daftar Materi Pembelajaran</h3>
+<div class="formrow"><div class="field"><label>Filter Kelas</label><select id="classFilter"><option>Semua Kelas</option><option>VII A</option><option>VII B</option><option>VIII A</option><option>IX A</option><option>X A</option><option>XI A</option><option>XII A</option></select></div></div>
+<div style="overflow:auto"><table><thead><tr><th>Mata Pelajaran</th><th>Kelas</th><th>Materi</th><th>Jenis</th></tr></thead><tbody id="materialRows">
+<tr><td>Matematika</td><td>VII A</td><td>Bilangan Bulat dan Operasi Hitung</td><td><span class="tag info">Modul</span></td></tr>
+<tr><td>Bahasa Indonesia</td><td>VII A</td><td>Teks Deskripsi</td><td><span class="tag">Materi</span></td></tr>
+<tr><td>IPA</td><td>VIII A</td><td>Sistem Pencernaan Manusia</td><td><span class="tag info">Modul</span></td></tr>
+<tr><td>Bahasa Inggris</td><td>IX A</td><td>Daily Activities</td><td><span class="tag warn">Tugas</span></td></tr>
+<tr><td>Fisika</td><td>XI A</td><td>Hukum Newton</td><td><span class="tag">Materi</span></td></tr>
+</tbody></table></div>
+<h3 class="section-title" style="margin-top:22px">Tambah Materi / Tugas</h3><div class="formrow"><div class="field"><label>Mata Pelajaran</label><input id="matpel" placeholder="Contoh: Matematika"></div><div class="field"><label>Kelas</label><input id="matkelas" placeholder="Contoh: VII A"></div><div class="field"><label>Judul Materi</label><input id="matjudul" placeholder="Judul materi atau tugas"></div><div class="field"><label>Jenis</label><select id="matjenis"><option>Materi</option><option>Modul</option><option>Tugas</option></select></div></div><button class="primary" id="addMaterial">Simpan Materi</button>
+</div></section>
+<section id="absensi" class="page">
+<div class="pagehead"><h2>Absensi Siswa</h2><p>Pencatatan kehadiran siswa dengan identitas dan status kehadiran.</p></div>
+<div class="notice"><b>Catatan integrasi:</b> Halaman ini menyediakan alur pencatatan absensi dan simulasi tombol verifikasi. Pembacaan sidik jari sungguhan memerlukan mesin fingerprint yang kompatibel, SDK/API perangkat, server, dan pengamanan data biometrik. Browser tidak dapat membaca sensor sidik jari secara bebas.</div>
+<div class="panel"><h3 class="section-title">Catat Kehadiran</h3><div class="formrow"><div class="field"><label>NIS</label><input id="nis" placeholder="Nomor induk siswa"></div><div class="field"><label>Nama Siswa</label><input id="attName" placeholder="Nama lengkap"></div><div class="field"><label>Kelas</label><select id="attClass"><option>VII A</option><option>VII B</option><option>VIII A</option><option>VIII B</option><option>IX A</option><option>X A</option><option>XI A</option><option>XII A</option></select></div><div class="field"><label>Status</label><select id="attStatus"><option>Hadir</option><option>Terlambat</option><option>Izin</option><option>Sakit</option></select></div></div><button class="primary" id="markAttendance">✓ Verifikasi & Catat Absensi</button><div id="attFeedback"></div></div>
+<div class="panel" style="margin-top:16px"><h3 class="section-title">Rekap Kehadiran Hari Ini</h3><div style="overflow:auto"><table><thead><tr><th>Waktu</th><th>NIS</th><th>Nama</th><th>Kelas</th><th>Status</th><th></th></tr></thead><tbody id="attendanceRows"></tbody></table></div></div>
+</section>
+<section id="matematika" class="page">
+<div class="pagehead"><h2>Matematika Interaktif</h2><p>Latihan soal acak dengan pemeriksaan jawaban dan skor langsung.</p></div>
+<div class="panel mathbox"><div class="formrow"><div class="field"><label>Tingkat Kesulitan</label><select id="mathLevel"><option value="easy">Dasar</option><option value="medium">Menengah</option><option value="hard">Lanjutan</option></select></div></div><div class="mathquestion" id="mathQuestion">12 + 8 = ?</div><div class="field"><label>Jawaban Anda</label><input id="mathAnswer" type="number" placeholder="Masukkan jawaban"></div><div class="formrow"><button class="primary" id="checkMath">Periksa Jawaban</button><button class="secondary" id="newMath">Soal Berikutnya</button></div><div id="mathFeedback"></div><div class="muted" style="font-size:12px;margin-top:12px">Skor latihan sesi ini: <b id="mathScore">0</b></div></div>
+</section>
+<section id="raport" class="page">
+<div class="pagehead"><h2>Raport Digital</h2><p>Pratinjau hasil belajar siswa berdasarkan data nilai yang tersimpan.</p></div>
+<div class="panel"><div class="formrow"><div class="field"><label>Nama Siswa</label><input id="reportName" value="Nama Siswa"></div><div class="field"><label>NIS</label><input id="reportNis" placeholder="Nomor induk siswa"></div><div class="field"><label>Kelas</label><select id="reportClass"><option>VII A</option><option>VIII A</option><option>IX A</option><option>X A</option><option>XI A</option><option>XII A</option></select></div><div class="field"><label>Semester</label><select><option>Ganjil</option><option>Genap</option></select></div></div><div style="overflow:auto"><table><thead><tr><th>Mata Pelajaran</th><th>Nilai</th><th>Predikat</th></tr></thead><tbody id="reportRows"></tbody></table></div><div id="reportSummary" style="margin-top:15px"></div><button class="secondary" onclick="window.print()">Cetak / Simpan PDF</button></div>
+</section>
+<section id="nilai" class="page">
+<div class="pagehead"><h2>Rekap Nilai</h2><p>Input nilai siswa dan pantau rata-rata hasil belajar.</p></div>
+<div class="panel"><h3 class="section-title">Input Nilai</h3><div class="formrow"><div class="field"><label>Nama Siswa</label><input id="scoreName" placeholder="Nama siswa"></div><div class="field"><label>Kelas</label><input id="scoreClass" placeholder="Contoh: VII A"></div><div class="field"><label>Mata Pelajaran</label><input id="scoreSubject" placeholder="Mata pelajaran"></div><div class="field"><label>Nilai (0–100)</label><input id="scoreValue" type="number" min="0" max="100" placeholder="85"></div></div><button class="primary" id="saveScore">Simpan Nilai</button><div style="overflow:auto;margin-top:18px"><table><thead><tr><th>Nama</th><th>Kelas</th><th>Mata Pelajaran</th><th>Nilai</th><th>Predikat</th></tr></thead><tbody id="scoreRows"></tbody></table></div><div id="scoreSummary" class="muted" style="font-size:12px;margin-top:12px"></div></div>
+</section>
+<section id="bk" class="page">
+<div class="pagehead"><h2>Aplikasi Bimbingan Konseling</h2><p>Dokumentasi layanan BK dan tindak lanjut perkembangan siswa.</p></div>
+<div class="notice">Data konseling bersifat rahasia. Gunakan akun dengan hak akses terbatas dan kebijakan perlindungan data sekolah sebelum dipakai untuk data siswa sebenarnya.</div>
+<div class="panel"><h3 class="section-title">Tambah Catatan BK</h3><div class="formrow"><div class="field"><label>Nama Siswa</label><input id="bkName" placeholder="Nama siswa"></div><div class="field"><label>Kelas</label><input id="bkClass" placeholder="Kelas"></div><div class="field"><label>Jenis Layanan</label><select id="bkType"><option>Konseling Individu</option><option>Konseling Kelompok</option><option>Pembinaan Kedisiplinan</option><option>Karier dan Studi Lanjut</option><option>Mediasi</option></select></div><div class="field"><label>Tanggal</label><input id="bkDate" type="date"></div></div><div class="field"><label>Catatan / Tindak Lanjut</label><textarea id="bkNote" placeholder="Tuliskan ringkasan seperlunya, hindari detail sensitif yang tidak diperlukan."></textarea></div><button class="primary" id="saveBk" style="margin-top:12px">Simpan Catatan BK</button><div style="overflow:auto;margin-top:18px"><table><thead><tr><th>Tanggal</th><th>Nama</th><th>Kelas</th><th>Layanan</th><th>Catatan</th></tr></thead><tbody id="bkRows"></tbody></table></div></div>
+</section>
+<div class="footer">© 2026 Assisi Smart School · Prototipe sistem sekolah digital</div>
+</main></div>
+<script>
+const $=id=>document.getElementById(id);
+const store={get(k){try{return JSON.parse(localStorage.getItem('assisi_'+k)||'[]')}catch(e){return[]}},set(k,v){localStorage.setItem('assisi_'+k,JSON.stringify(v))}};
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function go(page){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===page));document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n.dataset.page===page));window.scrollTo(0,0)}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+$('today').textContent=new Intl.DateTimeFormat('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date());
+function log(msg){let d=document.createElement('div');d.className='activity';d.innerHTML='<span class="dot"></span><div>'+escapeHtml(msg)+'<div class="muted">'+new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})+'</div></div>';$('activity').prepend(d)}
+// Exam demo
+const questions=[{q:'Hasil dari 15 × 4 adalah ...',o:['45','60',' ಅನ','75'],a:1},{q:'Ibu kota Indonesia adalah ...',o:['Bandung','Surabaya','Jakarta','Medan'],a:2},{q:'Hasil dari 100 ÷ 5 adalah ...',o:['10','15','20','25'],a:2},{q:'Planet yang dikenal sebagai Planet Merah adalah ...',o:['Venus','Mars','Jupiter','Saturnus'],a:1},{q:'Sinonim kata “indah” adalah ...',o:['Elok','Buruk','Lambat','Kecil'],a:0}];
+let examTimer=null,examSeconds=300;
+$('startExam').onclick=()=>{if(!$('examName').value.trim()){alert('Isi nama siswa terlebih dahulu.');return}if($('examCode').value.trim().toUpperCase()!=='ASSISI01'){alert('Kode ujian tidak valid. Gunakan kode demo ASSISI01.');return}examSeconds=300;clearInterval(examTimer);$('examArea').innerHTML='<div class="notice">Ujian demo dimulai. Waktu tersisa: <b id="timer">05:00</b></div>'+questions.map((q,i)=>'<div class="question"><p>'+(i+1)+'. '+q.q+'</p>'+q.o.map((o,j)=>'<label class="option"><input type="radio" name="q'+i+'" value="'+j+'">'+o+'</label>').join('')+'</div>').join('')+'<button class="primary" id="submitExam">Kumpulkan Jawaban</button>';let t=$('timer');examTimer=setInterval(()=>{examSeconds--;if(t)t.textContent=String(Math.floor(examSeconds/60)).padStart(2,'0')+':'+String(examSeconds%60).padStart(2,'0');if(examSeconds<=0){clearInterval(examTimer);submitExam()}},1000);$('submitExam').onclick=submitExam;function submitExam(){clearInterval(examTimer);let score=0;questions.forEach((q,i)=>{let v=document.querySelector('input[name="q'+i+'"]:checked');if(v&&+v.value===q.a)score++});let pct=Math.round(score/questions.length*100);$('examArea').innerHTML='<div class="result">Ujian selesai. Nilai: '+pct+' ('+score+'/'+questions.length+' jawaban benar).</div>';let arr=store.get('scores');arr.push({name:$('examName').value,cls:$('examClass').value,subject:'Ujian Online',value:pct});store.set('scores',arr);renderScores();log('Ujian online diselesaikan oleh '+$('examName').value)}};
+// Materials
+function renderMaterials(){let filter=$('classFilter').value;document.querySelectorAll('#materialRows tr').forEach(r=>r.style.display=(filter==='Semua Kelas'||r.cells[1].textContent===filter)?'':'none')}
+$('classFilter').onchange=renderMaterials;
+$('addMaterial').onclick=()=>{let vals=['matpel','matkelas','matjudul'].map(x=>$(x).value.trim());if(vals.some(x=>!x)){alert('Lengkapi data materi.');return}let tr=document.createElement('tr');tr.innerHTML=vals.map(escapeHtml).map(x=>'<td>'+x+'</td>').join('')+'<td><span class="tag info">'+escapeHtml($('matjenis').value)+'</span></td>';$('materialRows').append(tr);['matpel','matkelas','matjudul'].forEach(x=>$(x).value='');renderMaterials();log('Materi kelas digital ditambahkan')};
+// Attendance
+function renderAttendance(){let a=store.get('attendance');$('attendanceRows').innerHTML=a.length?a.slice().reverse().map((x,i)=>'<tr><td>'+escapeHtml(x.time)+'</td><td>'+escapeHtml(x.nis)+'</td><td>'+escapeHtml(x.name)+'</td><td>'+escapeHtml(x.cls)+'</td><td><span class="tag '+(x.status==='Hadir'?'':'warn')+'">'+escapeHtml(x.status)+'</span></td><td><button class="danger" onclick="deleteAttendance('+(a.length-1-i)+')">Hapus</button></td></tr>').join(''):'<tr><td colspan="6" class="empty">Belum ada data absensi.</td></tr>';$('attendanceCount').textContent=a.filter(x=>x.status==='Hadir').length}
+window.deleteAttendance=i=>{let a=store.get('attendance');a.splice(i,1);store.set('attendance',a);renderAttendance()};
+$('markAttendance').onclick=()=>{let nis=$('nis').value.trim(),name=$('attName').value.trim();if(!nis||!name){alert('Isi NIS dan nama siswa.');return}let a=store.get('attendance');a.push({nis,name,cls:$('attClass').value,status:$('attStatus').value,time:new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})});store.set('attendance',a);$('attFeedback').innerHTML='<div class="result">Absensi berhasil dicatat pada perangkat ini. Verifikasi biometrik belum dilakukan.</div>';renderAttendance();log('Absensi dicatat: '+name)};
+ // Math
+let mathAnswer=20,mathPoints=0;
+function newQuestion(){let level=$('mathLevel').value,a,b,op;if(level==='easy'){a=1+Math.floor(Math.random()*20);b=1+Math.floor(Math.random()*20);op=Math.random()<.5?'+':'-'}else if(level==='medium'){a=2+Math.floor(Math.random()*12);b=2+Math.floor(Math.random()*12);op=Math.random()<.5?'×':'+'}else{a=3+Math.floor(Math.random()*20);b=2+Math.floor(Math.random()*12);op=Math.random()<.5?'×':'÷';if(op==='÷')a=a*b}if(op==='-'&&b>a)[a,b]=[b,a];mathAnswer=op==='+'?a+b:op==='-'?a-b:op==='×'?a*b:a/b;$('mathQuestion').textContent=a+' '+op+' '+b+' = ?';$('mathAnswer').value='';$('mathFeedback').innerHTML=''}
+$('newMath').onclick=newQuestion;$('mathLevel').onchange=newQuestion;$('checkMath').onclick=()=>{if($('mathAnswer').value===''){alert('Masukkan jawaban.');return}if(Number($('mathAnswer').value)===mathAnswer){mathPoints+=10;$('mathFeedback').innerHTML='<div class="result">Benar! Hebat, jawabanmu tepat. +10 poin</div>'}else $('mathFeedback').innerHTML='<div class="notice">Belum tepat. Coba lagi atau lanjut ke soal berikutnya.</div>';$('mathScore').textContent=mathPoints};
+// Scores and report
+function grade(n){return n>=90?'A':n>=80?'B':n>=70?'C':n>=60?'D':'E'}
+function renderScores(){let a=store.get('scores');$('scoreRows').innerHTML=a.length?a.map(x=>'<tr><td>'+escapeHtml(x.name)+'</td><td>'+escapeHtml(x.cls)+'</td><td>'+escapeHtml(x.subject)+'</td><td>'+x.value+'</td><td>'+grade(x.value)+'</td></tr>').join(''):'<tr><td colspan="5" class="empty">Belum ada nilai tersimpan.</td></tr>';let avg=a.length?(a.reduce((s,x)=>s+Number(x.value),0)/a.length).toFixed(1):'-';$('scoreSummary').textContent='Jumlah data nilai: '+a.length+' · Rata-rata seluruh data: '+avg;renderReport()}
+$('saveScore').onclick=()=>{let name=$('scoreName').value.trim(),cls=$('scoreClass').value.trim(),subject=$('scoreSubject').value.trim(),value=Number($('scoreValue').value);if(!name||!cls||!subject||$('scoreValue').value===''||value<0||value>100){alert('Lengkapi data dan pastikan nilai 0–100.');return}let a=store.get('scores');a.push({name,cls,subject,value});store.set('scores',a);renderScores();log('Nilai disimpan untuk '+name);$('scoreValue').value=''};
+function renderReport(){let a=store.get('scores').filter(x=>x.name.toLowerCase()===$('reportName').value.trim().toLowerCase()&&x.cls===$('reportClass').value);$('reportRows').innerHTML=a.length?a.map(x=>'<tr><td>'+escapeHtml(x.subject)+'</td><td>'+x.value+'</td><td>'+grade(x.value)+'</td></tr>').join(''):'<tr><td colspan="3" class="empty">Belum ada nilai untuk siswa dan kelas ini. Tambahkan melalui menu Rekap Nilai.</td></tr>';let avg=a.length?(a.reduce((s,x)=>s+x.value,0)/a.length).toFixed(1):'-';$('reportSummary').innerHTML='<b>Jumlah mata pelajaran/data:</b> '+a.length+' &nbsp; <b>Rata-rata:</b> '+avg}
+$('reportName').oninput=renderReport;$('reportClass').onchange=renderReport;
+// BK
+function renderBk(){let a=store.get('bk');$('bkRows').innerHTML=a.length?a.slice().reverse().map(x=>'<tr><td>'+escapeHtml(x.date)+'</td><td>'+escapeHtml(x.name)+'</td><td>'+escapeHtml(x.cls)+'</td><td>'+escapeHtml(x.type)+'</td><td>'+escapeHtml(x.note)+'</td></tr>').join(''):'<tr><td colspan="5" class="empty">Belum ada catatan BK.</td></tr>';$('bkCount').textContent=a.length}
+$('bkDate').value=new Date().toISOString().slice(0,10);
+$('saveBk').onclick=()=>{let name=$('bkName').value.trim(),cls=$('bkClass').value.trim(),note=$('bkNote').value.trim();if(!name||!cls||!note){alert('Lengkapi nama, kelas, dan catatan.');return}let a=store.get('bk');a.push({name,cls,note,date:$('bkDate').value,type:$('bkType').value});store.set('bk',a);renderBk();log('Catatan layanan BK disimpan');$('bkName').value='';$('bkNote').value=''};
+renderAttendance();renderScores();renderBk();newQuestion();
+</script>
+</body></html>
